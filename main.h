@@ -10,5 +10,6 @@ int _print_format(const char *format, va_list args);
 int _print_a_char(va_list args);
 int _print_a_string(va_list args);
 int _print_a_percent(void);
+int _print_an_int(va_list args);
 
 #endif

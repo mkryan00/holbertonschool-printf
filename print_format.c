@@ -32,6 +32,8 @@ int _print_format(const char *format, va_list args)
 				count += _print_a_string(args);
 			else if (format[i] == '%')
 				count += _print_a_percent();
+			else if (format[i] == 'd' || format[i] == 'i')
+			  count += _print_an_int(args);
 			else
 			{
 				/* unknown specifier: print literally as %x */

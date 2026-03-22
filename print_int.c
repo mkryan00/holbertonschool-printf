@@ -8,38 +8,32 @@
 int _print_an_int(va_list args)
 {
 int ival = va_arg(args, int);
+unsigned int num;
 int count = 0;
 int i = 0;
 char a[20] = {0};
 
-if (!ival)
-{
-;
-}
 if (ival == 0)
-{
-write(1, "0", 1);
-count++;
-return (count);
-}
+return (write(1, "0", 1));
+
 if (ival < 0)
 {
-ival = ival * -1;
-write(1, "-", 1);
-count++;
+count += write(1, "-", 1); 
+num = (unsigned int)(-(long)ival);
 }
-while (ival != 0)
+else
 {
-a[i] = ival % 10 + '0';
-ival = ival / 10;
-i++;
+num = ival;
 }
-i--;
-while (i >= 0)
+ 
+while (num > 0)
 {
-write(1, &a[i], 1);
-count++;
-i--;
+a[i++] = (num % 10) + '0';
+num /= 10;
 }
+
+while (i--)
+count += write(1, &a[i], 1);
+ 
 return (count);
 }

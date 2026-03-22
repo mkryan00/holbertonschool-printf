@@ -1,0 +1,39 @@
+.TH PRINTF "MARCH 22 2026" "VERSION 1.0" "PRINTF"
+
+.SH NAME
+printf - custom printf function formatted for output conversion
+
+.SH REQUIREMENTS TO USE
+#include "main.h"
+int _printf(const char *format, ...);
+A README.md file, at the root of the folder of the project
+Code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
+No global variables allowed
+
+.SH DESCRIPTION
+This function acts as a basic printf standard function.
+
+It prints out standard output by using write().
+
+The format string handles text and conversion specifers:
+
+.TP
+%c - characters
+%s - strings
+%d and %i - integers
+%% - prints a percent sign
+
+.SH
+The return value is the number of characters printed by the function, excluding the terminating null byte.
+
+.SH EXAMPLES
+_printf("hello %s\n", "world", 1, 2, 3, 4);
+.br
+Output: hello world
+
+_printf("Did you know: %s just fixed a truck using %d bolts and pure determination %c\n", "Josh", 4, '!');
+.br
+Output: Did you know: Josh just fixed a truck using 4 bolts and pure determination !
+
+.SH LIMITATIONS
+If an unknown conversion specifier is used, eg %r, it will simply print %r as the code has not been designed to handle these conversion specifiers.
